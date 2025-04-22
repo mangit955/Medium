@@ -16,18 +16,26 @@ export const blogRouter = new Hono<{
 blogRouter.use("/*", async(c, next) =>{
     const authheader = c.req.header("Authorization") || "";
     const token = authheader.split(" ")[1]
-    const user = await verify(token, c.env.JWT_SECERET);
-    if(user) {
-        c.set("userId", user.id as string);
-        await next();
-    }else {
+
+    try {
+        const user = await verify(token, c.env.JWT_SECERET);
+        if(user) {
+            c.set("userId", user.id as string);
+            await next();
+        }else {
+            c.status(403);
+            return c.json({
+                message: "You are not authorised!"
+            });
+        }
+
+    } catch(e) {
         c.status(403);
         return c.json({
-            message: "You are not authorized to access this resource"
+            message: "You are not logged in"
         });
-    }
-
     
+    }
 })
 
 blogRouter.post('/', async(c) => {
