@@ -4,6 +4,9 @@ import { PrismaClient } from './generated/prisma/edge';
 import {sign} from 'hono/jwt'
 import { userRouter } from './routes/user';
 import { blogRouter } from './routes/blog';
+import { use } from 'hono/jsx';
+import { cors } from 'hono/cors';
+
 
 type Bindings = {
   DATABASE_URL: string;
@@ -12,8 +15,9 @@ type Bindings = {
 
 const app = new Hono<{Bindings: Bindings}>()
 
-app.route("/api/v1/user", userRouter)
-app.route("/api/v1/blog", blogRouter)
+app.use('/*', cors())
+app.route("/api/v1/user", userRouter);
+app.route("/api/v1/blog", blogRouter);
 
 
 
