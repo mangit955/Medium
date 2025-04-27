@@ -1,0 +1,1 @@
+Its an blogging application
