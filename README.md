@@ -106,7 +106,3 @@ npx wrangler publish
 - [TypeScript](https://www.typescriptlang.org/)
 
 ---
-
-## 📃 License
-
-This project is licensed under the [MIT License](LICENSE).
