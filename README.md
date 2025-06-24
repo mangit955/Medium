@@ -45,7 +45,7 @@ A full-stack blogging application built with modern web technologies, designed f
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/blogging-app.git
+git clone https://github.com/mangit955/Medium.git
 cd blogging-app
 
 # 2. Install frontend dependencies
