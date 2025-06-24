@@ -34,8 +34,7 @@ A full-stack blogging application built with modern web technologies, designed f
 ```
 ├── frontend/         # React app (Vite + TypeScript)
 ├── backend/          # Cloudflare Worker API routes
-├── prisma/           # Prisma schema and client
-├── .env              # Environment variables
+├── common/           # contains common files for both frontend and backend
 └── README.md         # This file
 ```
 
